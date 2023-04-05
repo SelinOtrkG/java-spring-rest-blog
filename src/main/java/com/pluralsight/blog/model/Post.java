@@ -25,6 +25,11 @@ public class Post {
     @CreationTimestamp
     private Date date;
 
+
+    //each Post can only have one Author -- Author can have multiple posts
+    @ManyToOne (fetch = FetchType.EAGER)
+    private Author author;
+
     public Post() {
         super();
     }
@@ -35,6 +40,13 @@ public class Post {
         this.body = body;
     }
 
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
     public Long getId() {
         return id;
     }
